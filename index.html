@@ -132,7 +132,8 @@ a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
         <span class="badge">メモ</span><span class="badge">生産性</span><span class="badge">オフライン</span>
       </div>
       <div class="cta">
-        <a class="btn primary" href="https://apps.apple.com/jp/app/re-%E3%83%A1%E3%83%A2/id6751014318" target="_blank" rel="noopener noreferrer" aria-label="App StoreでRe:メモを開く">App Storeで見る</a>
+        <!-- ★ 新しいタブを開かずに同一タブで遷移（in-app ブラウザ対策） -->
+        <a id="open-appstore" class="btn primary" href="https://apps.apple.com/jp/app/re-%E3%83%A1%E3%83%A2/id6751014318" rel="external nofollow">App Storeで見る</a>
         <a class="btn" href="#faq">FAQを見る</a>
       </div>
     </div>
@@ -180,5 +181,23 @@ a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
     <a href="/">トップへ戻る</a>
   </footer>
 </main>
+
+<!-- iOS優先: AppStoreスキーム → 失敗時にhttpsへフォールバック -->
+<script>
+(function(){
+  var link = document.getElementById('open-appstore');
+  if(!link) return;
+  link.addEventListener('click', function(e){
+    var ua = navigator.userAgent || navigator.vendor || '';
+    var isiOS = /iPad|iPhone|iPod/.test(ua);
+    if(!isiOS) return; // iOS以外は通常のhttps遷移
+    e.preventDefault();
+    var deep = 'itms-apps://itunes.apple.com/app/id6751014318';
+    // deep link を試す → 700ms 以内に遷移しなければ https へ
+    var fallback = setTimeout(function(){ window.location.href = link.href; }, 700);
+    try { window.location.href = deep; } catch(_) { clearTimeout(fallback); window.location.href = link.href; }
+  }, {passive:false});
+})();
+</script>
 </body>
 </html>
