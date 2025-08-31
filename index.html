@@ -3,11 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
 <title>Re:メモ — サポート</title>
 <meta name="description" content="Re:メモのサポート・FAQ・プライバシーポリシー。『見返してない期間』でメモを検索できます。">
 <link rel="canonical" href="https://daichi-kashimoto.github.io/rememo/">
 <meta name="theme-color" content="#0ea5e9">
 <link rel="icon" href="../images/Rememo-icon2025.png" sizes="any">
+<link rel="apple-touch-icon" href="../images/Rememo-icon2025.png">
 
 <!-- Open Graph / X -->
 <meta property="og:type" content="website">
@@ -16,6 +18,8 @@
 <meta property="og:url" content="https://daichi-kashimoto.github.io/rememo/">
 <meta property="og:image" content="https://daichi-kashimoto.github.io/images/Rememo-icon2025.png">
 <meta property="og:image:alt" content="Re:メモのアプリアイコン">
+<meta property="og:site_name" content="Daichi Kashimoto">
+<meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
 
 <!-- Font -->
@@ -32,6 +36,10 @@
 html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Noto Sans JP",system-ui,-apple-system,sans-serif}
 a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
 .container{max-width:960px;margin:0 auto;padding:24px}
+
+/* Skip link */
+.skip{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip:focus{position:static;width:auto;height:auto;padding:8px 10px;background:var(--bg-soft);border:1px solid var(--line);border-radius:10px}
 
 .header{position:sticky;top:0;background:rgba(255,255,255,.6);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:10}
 @media (prefers-color-scheme: dark){ .header{ background:rgba(11,16,32,.6);} }
@@ -66,6 +74,11 @@ a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
 .footer{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap}
 .small{font-size:13px;color:var(--muted)}
 .anchor{scroll-margin-top:72px}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  * { scroll-behavior: auto !important; }
+}
 </style>
 
 <!-- JSON-LD: SoftwareApplication -->
@@ -85,13 +98,15 @@ a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
 </script>
 </head>
 <body>
+<a class="skip" href="#main">本文へスキップ</a>
+
 <header class="header">
   <div class="container nav">
     <div class="brand">
-      <img src="../images/Rememo-icon2025.png" alt="">
+      <img src="../images/Rememo-icon2025.png" alt="" width="28" height="28" decoding="async" loading="eager">
       <h1>Re:メモ — サポート</h1>
     </div>
-    <nav class="menu">
+    <nav class="menu" aria-label="ページ内ナビゲーション">
       <a href="/">Home</a>
       <a href="#features">特徴</a>
       <a href="#faq">FAQ</a>
@@ -101,29 +116,29 @@ a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
   </div>
 </header>
 
-<main class="container">
+<main id="main" class="container" role="main">
   <!-- Hero -->
-  <section class="hero">
-    <img src="../images/Rememo-icon2025.png" alt="Re:メモ アイコン">
+  <section class="hero" aria-labelledby="headline">
+    <img src="../images/Rememo-icon2025.png" alt="Re:メモ アプリアイコン" width="72" height="72" decoding="async" loading="lazy">
     <div>
-      <h2>『見返してない期間』でメモを再発見。</h2>
+      <h2 id="headline">『見返してない期間』でメモを再発見。</h2>
       <p class="small">忘れていたメモを、もう一度。シンプル＆オフラインで軽快に使えます。</p>
-      <div class="badges">
+      <div class="badges" aria-label="カテゴリー">
         <span class="badge">メモ</span><span class="badge">生産性</span><span class="badge">オフライン</span>
       </div>
       <div class="cta">
         <!-- App Store 公開後にURL差し替え -->
-        <a class="btn muted" title="近日公開">App Store（近日公開）</a>
+        <a class="btn muted" aria-disabled="true" title="近日公開">App Store（近日公開）</a>
         <a class="btn" href="#faq">まずはFAQへ</a>
       </div>
     </div>
   </section>
 
   <!-- Key Value -->
-  <section class="kv">
-    <img src="../images/Rememo-icon2025.png" alt="">
+  <section class="kv" aria-labelledby="kv-title">
+    <img src="../images/Rememo-icon2025.png" alt="" width="64" height="64" decoding="async" loading="lazy">
     <div>
-      <div class="small">Re:メモのキモ</div>
+      <div class="small" id="kv-title">Re:メモのキモ</div>
       <h3 style="margin:4px 0 6px;font-size:18px">最後に開いてからの経過日数で、メモを“優先的に”探せます。</h3>
       <p class="small">「最近触ってないメモ」を定期的に見返せるので、埋もれがちな内容を再発見できます。</p>
     </div>
@@ -131,11 +146,11 @@ a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
 
   <!-- Features -->
   <h2 id="features" class="section-title anchor">特徴</h2>
-  <div class="grid">
-    <article class="card"><h3>見返してない期間で検索</h3><p>最後に開いてからの経過で並べ替え。忘れていたメモに素早く到達。</p></article>
-    <article class="card"><h3>軽快・オフライン</h3><p>データは端末内に保存。通信が不安定でもストレスなく使えます。</p></article>
-    <article class="card"><h3>シンプル操作</h3><p>最小限のUIで、書く・探す・見返すに集中できます。</p></article>
-    <article class="card"><h3>ダークモード対応</h3><p>システム設定に追従。夜間でも目にやさしく。</p></article>
+  <div class="grid" role="list">
+    <article class="card" role="listitem"><h3>見返してない期間で検索</h3><p>最後に開いてからの経過で並べ替え。忘れていたメモに素早く到達。</p></article>
+    <article class="card" role="listitem"><h3>軽快・オフライン</h3><p>データは端末内に保存。通信が不安定でもストレスなく使えます。</p></article>
+    <article class="card" role="listitem"><h3>シンプル操作</h3><p>最小限のUIで、書く・探す・見返すに集中できます。</p></article>
+    <article class="card" role="listitem"><h3>ダークモード対応</h3><p>システム設定に追従。夜間でも目にやさしく。</p></article>
   </div>
 
   <!-- FAQ -->
