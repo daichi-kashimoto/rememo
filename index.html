@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#0ea5e9">
 <link rel="icon" href="../images/Rememo-icon2025.png" sizes="any">
 
-<!-- OG/Twitter -->
+<!-- Open Graph / X -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Re:メモ — サポート">
 <meta property="og:description" content="『見返してない期間』でメモを検索できるメモ帳。使い方・FAQ・プライバシーポリシーはこちら。">
@@ -24,16 +24,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --brand:#0ea5e9; --ink:#0f172a; --muted:#475569; --bg:#ffffff; --bg-soft:#f8fafc; --card:#ffffff; --line:#e2e8f0;
-}
+:root{ --brand:#0ea5e9; --ink:#0f172a; --muted:#475569; --bg:#fff; --bg-soft:#f8fafc; --card:#fff; --line:#e2e8f0; }
 @media (prefers-color-scheme: dark){
   :root{ --ink:#e5e7eb; --muted:#94a3b8; --bg:#0b1020; --bg-soft:#0e152b; --card:#111831; --line:#1f2a44; }
 }
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Noto Sans JP", system-ui, -apple-system, sans-serif}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Noto Sans JP",system-ui,-apple-system,sans-serif}
 a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
 .container{max-width:960px;margin:0 auto;padding:24px}
+
 .header{position:sticky;top:0;background:rgba(255,255,255,.6);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:10}
 @media (prefers-color-scheme: dark){ .header{ background:rgba(11,16,32,.6);} }
 .nav{display:flex;gap:16px;align-items:center;justify-content:space-between}
@@ -110,12 +109,10 @@ a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
       <h2>『見返してない期間』でメモを再発見。</h2>
       <p class="small">忘れていたメモを、もう一度。シンプル＆オフラインで軽快に使えます。</p>
       <div class="badges">
-        <span class="badge">メモ</span>
-        <span class="badge">生産性</span>
-        <span class="badge">オフライン</span>
+        <span class="badge">メモ</span><span class="badge">生産性</span><span class="badge">オフライン</span>
       </div>
       <div class="cta">
-        <!-- App Store 公開後：href を置き換え -->
+        <!-- App Store 公開後にURL差し替え -->
         <a class="btn muted" title="近日公開">App Store（近日公開）</a>
         <a class="btn" href="#faq">まずはFAQへ</a>
       </div>
@@ -135,22 +132,10 @@ a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
   <!-- Features -->
   <h2 id="features" class="section-title anchor">特徴</h2>
   <div class="grid">
-    <article class="card">
-      <h3>見返してない期間で検索</h3>
-      <p>最後に開いてからの経過で並べ替え。忘れていたメモに素早く到達。</p>
-    </article>
-    <article class="card">
-      <h3>軽快・オフライン</h3>
-      <p>データは端末内に保存。通信が不安定でもストレスなく使えます。</p>
-    </article>
-    <article class="card">
-      <h3>シンプル操作</h3>
-      <p>最小限のUIで、書く・探す・見返すに集中できます。</p>
-    </article>
-    <article class="card">
-      <h3>ダークモード対応</h3>
-      <p>システム設定に追従。夜間でも目にやさしく。</p>
-    </article>
+    <article class="card"><h3>見返してない期間で検索</h3><p>最後に開いてからの経過で並べ替え。忘れていたメモに素早く到達。</p></article>
+    <article class="card"><h3>軽快・オフライン</h3><p>データは端末内に保存。通信が不安定でもストレスなく使えます。</p></article>
+    <article class="card"><h3>シンプル操作</h3><p>最小限のUIで、書く・探す・見返すに集中できます。</p></article>
+    <article class="card"><h3>ダークモード対応</h3><p>システム設定に追従。夜間でも目にやさしく。</p></article>
   </div>
 
   <!-- FAQ -->
@@ -166,14 +151,10 @@ a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
 
   <!-- Privacy / Contact -->
   <h2 id="privacy" class="section-title anchor">プライバシー</h2>
-  <div class="card">
-    <p><a href="./privacy.html">プライバシーポリシー</a> をご確認ください。</p>
-  </div>
+  <div class="card"><p><a href="./privacy.html">プライバシーポリシー</a> をご確認ください。</p></div>
 
   <h2 id="contact" class="section-title anchor">お問い合わせ</h2>
-  <div class="card">
-    <p>不具合・ご要望は <a href="mailto:daichi.kasshi@icloud.com">daichi.kasshi@icloud.com</a> まで。</p>
-  </div>
+  <div class="card"><p>不具合・ご要望は <a href="mailto:daichi.kasshi@icloud.com">daichi.kasshi@icloud.com</a> まで。</p></div>
 
   <footer class="footer">
     <span>© 2025 Daichi Kashimoto</span>
